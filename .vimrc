@@ -3,8 +3,8 @@ set undodir=~/.vim/undodir
 set number
 set number
 set softtabstop=2
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set nobackup
 colorscheme pablo
 augroup toogle_relative_number
@@ -14,8 +14,6 @@ set showmode
 let mapleader = ","
 
 call plug#begin('~/.vim/plugged')
-Plug 'sheerun/vim-polyglot'
-Plug 'derekwyatt/vim-scala'
 Plug 'tpope/vim-surround'
 " Buffer Navgiation
 " =======================================================================
@@ -23,6 +21,22 @@ noremap <C-J> <C-W>j<CR>
 noremap <C-K> <C-W>k<CR>
 noremap <C-H> <C-W>h<CR>
 noremap <C-L> <C-W>l<CR>
+
+" Language Support
+" =======================================================================
+Plug 'sheerun/vim-polyglot'
+Plug 'derekwyatt/vim-scala'
+Plug 'dense-analysis/ale'
+" {{{
+augroup elixir
+  autocmd FileType elixir nnoremap gd :ALEGoToDefinition<cr>
+augroup END
+  let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
+  let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
+  let g:ale_linters = {}
+  let g:ale_linters.elixir = ['elixir-ls', 'credo']
+" }}}
+
 " Text Navigation
 " =======================================================================
 
@@ -36,7 +50,6 @@ Plug 'easymotion/vim-easymotion'
 " }}}
 " Text Manipulation
 " =======================================================================
-Plug 'valloric/youcompleteme'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdcommenter'
 Plug 'raimondi/delimitmate'
