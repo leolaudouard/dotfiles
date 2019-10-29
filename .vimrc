@@ -30,7 +30,9 @@ Plug 'dense-analysis/ale'
 " {{{
 augroup elixir
   autocmd FileType elixir nnoremap gd :ALEGoToDefinition<cr>
+  autocmd FileType elixir nnoremap Gd :ALEFindReferences<cr>
 augroup END
+	let g:ale_set_highlights = 0
   let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
   let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
   let g:ale_linters = {}
