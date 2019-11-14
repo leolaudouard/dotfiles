@@ -5,6 +5,7 @@ set number
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
+set expandtab
 set nobackup
 colorscheme pablo
 augroup toogle_relative_number
@@ -21,6 +22,12 @@ noremap <C-J> <C-W>j<CR>
 noremap <C-K> <C-W>k<CR>
 noremap <C-H> <C-W>h<CR>
 noremap <C-L> <C-W>l<CR>
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/g<c-f>F/h
+
+nnoremap <Left> :echo "That's h"<CR>
+nnoremap <Right> :echo "That's l"<CR>
+nnoremap <Up> :echo "That's k"<CR>
+nnoremap <Down> :echo "That's j"<CR>
 
 " Language Support
 " =======================================================================
@@ -28,15 +35,25 @@ Plug 'sheerun/vim-polyglot'
 Plug 'derekwyatt/vim-scala'
 Plug 'dense-analysis/ale'
 " {{{
+noremap gd :ALEGoToDefinition<cr>
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 augroup elixir
-  autocmd FileType elixir nnoremap gd :ALEGoToDefinition<cr>
   autocmd FileType elixir nnoremap Gd :ALEFindReferences<cr>
 augroup END
-	let g:ale_set_highlights = 0
-  let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
-  let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
-  let g:ale_linters = {}
-  let g:ale_linters.elixir = ['elixir-ls', 'credo']
+let g:ale_set_highlights = 0
+" Elixir
+let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
+let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
+let g:ale_linters = {}
+let g:ale_linters.elixir = ['elixir-ls', 'credo']
+
+" TypeScript
+let g:ale_typescript_prettier_use_local_config = 1
+let g:ale_linters.typescript = ['tsserver']
+let g:ale_fixers = {}
+let g:ale_fixers.typescript = ['prettier']
+let g:ale_fix_on_save = 1
 " }}}
 
 " Text Navigation
@@ -63,7 +80,8 @@ Plug 'junegunn/fzf.vim'
 " {{{
   let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
-  nnoremap <silent> <leader><space> :Files<CR>
+  nnoremap <silent> <leader><space> :GFiles<CR>
+  nnoremap <silent> <leader>a<space> :Files<CR>
 
   nnoremap <silent> K :call SearchWordWithAg()<CR>
   vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
