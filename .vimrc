@@ -42,16 +42,17 @@ augroup elixir
   autocmd FileType elixir nnoremap Gd :ALEFindReferences<cr>
 augroup END
 let g:ale_set_highlights = 0
+let g:ale_linters = {}
+let g:ale_fixers = {}
 " Elixir
 let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
 let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
-let g:ale_linters = {}
 let g:ale_linters.elixir = ['elixir-ls', 'credo']
+let g:ale_fixers.elixir = ['mix_format']
 
 " TypeScript
 let g:ale_typescript_prettier_use_local_config = 1
 let g:ale_linters.typescript = ['tsserver']
-let g:ale_fixers = {}
 let g:ale_fixers.typescript = ['prettier']
 let g:ale_fix_on_save = 1
 " }}}
