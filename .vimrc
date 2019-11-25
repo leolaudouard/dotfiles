@@ -53,7 +53,7 @@ let g:ale_fixers.elixir = ['mix_format']
 let g:ale_typescript_prettier_use_local_config = 1
 let g:ale_linters.typescript = ['tsserver']
 let g:ale_fixers.typescript = ['prettier']
-nmap <C-L> <Plug>(ale_fix)
+nmap <C-T> <Plug>(ale_fix)
 " }}}
 
 " Text Navigation
