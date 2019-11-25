@@ -18,10 +18,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 " Buffer Navgiation
 " =======================================================================
-noremap <C-J> <C-W>j<CR>
-noremap <C-K> <C-W>k<CR>
-noremap <C-H> <C-W>h<CR>
-noremap <C-L> <C-W>l<CR>
+noremap <C-j> <C-W>j<CR>
+noremap <C-k> <C-W>k<CR>
+noremap <C-h> <C-W>h<CR>
+noremap <C-l> <C-W>l<CR>
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/g<c-f>F/h
 
 nnoremap <Left> :echo "That's h"<CR>
@@ -36,11 +36,10 @@ Plug 'derekwyatt/vim-scala'
 Plug 'dense-analysis/ale'
 " {{{
 noremap gd :ALEGoToDefinition<cr>
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-augroup elixir
-  autocmd FileType elixir nnoremap Gd :ALEFindReferences<cr>
-augroup END
+nnoremap gr :ALEFindReferences<cr>
+nmap <silent> gN <Plug>(ale_previous_wrap)
+nmap <silent> gn <Plug>(ale_next_wrap)
+
 let g:ale_set_highlights = 0
 let g:ale_linters = {}
 let g:ale_fixers = {}
@@ -54,7 +53,7 @@ let g:ale_fixers.elixir = ['mix_format']
 let g:ale_typescript_prettier_use_local_config = 1
 let g:ale_linters.typescript = ['tsserver']
 let g:ale_fixers.typescript = ['prettier']
-let g:ale_fix_on_save = 1
+nmap <C-L> <Plug>(ale_fix)
 " }}}
 
 " Text Navigation
@@ -79,6 +78,7 @@ Plug 'mg979/vim-visual-multi'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " {{{
+  let g:fzf_prefer_tmux = 1
   let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
   nnoremap <silent> <leader><space> :GFiles<CR>
