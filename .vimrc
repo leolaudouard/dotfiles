@@ -43,6 +43,13 @@ nmap <silent> gn <Plug>(ale_next_wrap)
 let g:ale_set_highlights = 0
 let g:ale_linters = {}
 let g:ale_fixers = {}
+
+let g:ale_linters.python = [ 'pyls' ]
+let g:ale_fixers.python = ['yapf']
+
+let g:ale_go_gopls_executable = '/home/leo/.asdf/installs/golang/1.13.5/packages/bin/gopls'
+let g:ale_linters.go = [ 'gopls' ]
+let g:ale_fixers.go = ['gofmt']
 " Elixir
 let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
 let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
