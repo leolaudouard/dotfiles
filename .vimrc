@@ -1,4 +1,5 @@
 set undofile
+"set spell
 set undodir=~/.vim/undodir
 set number
 set number
@@ -16,13 +17,13 @@ let mapleader = ","
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
-" Buffer Navgiation
+" Buffer Navigation
 " =======================================================================
 noremap <C-j> <C-W>j<CR>
 noremap <C-k> <C-W>k<CR>
 noremap <C-h> <C-W>h<CR>
 noremap <C-l> <C-W>l<CR>
-nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/g<c-f>F/h
+nnoremap <Leader>r :%s/<C-r><C-w>/<C-r><C-w>/g<c-f>F/h
 
 nnoremap <Left> :echo "That's h"<CR>
 nnoremap <Right> :echo "That's l"<CR>
