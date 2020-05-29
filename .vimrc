@@ -1,5 +1,6 @@
 set undofile
 "set spell
+set laststatus=2
 set undodir=~/.vim/undodir
 set number
 set number
@@ -8,7 +9,6 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set nobackup
-colorscheme pablo
 augroup toogle_relative_number
 autocmd InsertEnter * :setlocal norelativenumber
 autocmd InsertLeave * :setlocal relativenumber
@@ -17,6 +17,18 @@ let mapleader = ","
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
+Plug 'motemen/git-vim'
+
+" Theme
+" =======================================================================
+
+"Plug 'haishanh/night-owl.vim'
+"syntax enable
+"colorscheme night-owl
+colorscheme pablo
+
+
+" =======================================================================
 " Buffer Navigation
 " =======================================================================
 noremap <C-j> <C-W>j<CR>
@@ -52,7 +64,7 @@ let g:ale_go_gopls_executable = '/home/leo/.asdf/installs/golang/1.13.5/packages
 let g:ale_linters.go = [ 'gopls' ]
 let g:ale_fixers.go = ['gofmt']
 " Elixir
-let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
+let g:ale_elixir_elixir_ls_release = "/home/leo/ls/elixir-ls/rel"
 let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
 let g:ale_linters.elixir = ['elixir-ls', 'credo']
 let g:ale_fixers.elixir = ['mix_format']
@@ -77,19 +89,21 @@ Plug 'easymotion/vim-easymotion'
   nmap ; <Plug>(easymotion-s2)
   map f <Plug>(easymotion-bd-f)
 " }}}
+
 " Text Manipulation
 " =======================================================================
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdcommenter'
 Plug 'raimondi/delimitmate'
-Plug 'mg979/vim-visual-multi'
+
 " File Navigation
 " =======================================================================
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " {{{
   let g:fzf_prefer_tmux = 1
   let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+  let g:fzf_preview_window = 'right:60%'
 
   nnoremap <silent> <leader><space> :GFiles<CR>
   nnoremap <silent> <leader>a<space> :Files<CR>
