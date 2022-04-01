@@ -17,7 +17,7 @@ let mapleader = ","
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
-Plug 'motemen/git-vim'
+Plug 'tpope/vim-fugitive'
 
 " Theme
 " =======================================================================
@@ -74,7 +74,7 @@ let g:ale_typescript_prettier_use_local_config = 1
 let g:ale_linters.typescript = ['tsserver']
 let g:ale_fixers.typescript = ['prettier']
 let g:ale_completion_enabled = 1
-let g:ale_completion_tsserver_autoimport = 1
+"let g:ale_completion_tsserver_autoimport = 1
 nmap <C-T> <Plug>(ale_fix)
 " }}}
 
@@ -108,8 +108,8 @@ Plug 'junegunn/fzf.vim'
   nnoremap <silent> <leader><space> :GFiles<CR>
   nnoremap <silent> <leader>a<space> :Files<CR>
 
-  nnoremap <silent> K :call SearchWordWithAg()<CR>
-  vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
+  "nnoremap <silent> K :call SearchWordWithAg()<CR>
+  "vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
   function! SearchWordWithAg()
     execute 'Ag' expand('<cword>')
   endfunction
