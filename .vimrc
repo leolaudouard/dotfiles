@@ -1,4 +1,5 @@
 set undofile
+set nofixendofline
 "set spell
 set laststatus=2
 set undodir=~/.vim/undodir
@@ -57,7 +58,8 @@ let g:ale_set_highlights = 0
 let g:ale_linters = {}
 let g:ale_fixers = {}
 
-let g:ale_linters.python = ['pylsp', 'mypy']
+" This one: https://github.com/python-lsp/python-lsp-server
+let g:ale_linters.python = ['pylsp']
 let g:ale_fixers.python = ['black', 'isort']
 let g:ale_python_black_options = '--line-length=120'
 "Not working, so manually `pip uninstall pycodestyle`
@@ -109,6 +111,7 @@ Plug 'raimondi/delimitmate'
 
 " File Navigation
 " =======================================================================
+Plug 'bogado/file-line'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " {{{
