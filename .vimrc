@@ -10,7 +10,7 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set nobackup
-augroup toogle_relative_number
+"augroup toogle_relative_number
 autocmd InsertEnter * :setlocal norelativenumber
 autocmd InsertLeave * :setlocal relativenumber
 set showmode
@@ -19,6 +19,7 @@ let mapleader = ","
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'iamcco/markdown-preview.nvim'
 
 " Theme
 " =======================================================================
@@ -58,6 +59,9 @@ let g:ale_set_highlights = 0
 let g:ale_linters = {}
 let g:ale_fixers = {}
 
+" npm install -g write-good
+let g:ale_writegood_options = "--no-passive"
+let g:ale_fixers.markdown = ['remark-lint']
 " This one: https://github.com/python-lsp/python-lsp-server
 let g:ale_linters.python = ['pylsp']
 let g:ale_fixers.python = ['black', 'isort']
