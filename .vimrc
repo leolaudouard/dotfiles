@@ -11,12 +11,13 @@ set tabstop=2
 set expandtab
 set nobackup
 "augroup toogle_relative_number
-autocmd InsertEnter * :setlocal norelativenumber
-autocmd InsertLeave * :setlocal relativenumber
+"autocmd InsertEnter * :setlocal norelativenumber
+"autocmd InsertLeave * :setlocal relativenumber
 set showmode
 let mapleader = ","
 
 call plug#begin('~/.vim/plugged')
+"Plug 'vim-scripts/groovy.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim'
@@ -26,8 +27,8 @@ Plug 'iamcco/markdown-preview.nvim'
 
 "Plug 'haishanh/night-owl.vim'
 "syntax enable
-"colorscheme night-owl
-colorscheme pablo
+colorscheme night-owl
+"colorscheme pablo
 
 
 " =======================================================================
@@ -81,7 +82,7 @@ let g:ale_go_gopls_executable = '/home/leo/.asdf/installs/golang/1.13.5/packages
 let g:ale_linters.go = [ 'gopls' ]
 let g:ale_fixers.go = ['gofmt']
 " Elixir
-let g:ale_elixir_elixir_ls_release = "/home/leo/ls/elixir-ls/rel"
+let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
 let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
 let g:ale_linters.elixir = ['elixir-ls', 'credo']
 let g:ale_fixers.elixir = ['mix_format']

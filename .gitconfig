@@ -1,0 +1,23 @@
+[user]
+	name = Leo Laudouard
+	email = leo.laudouard@easymile.com
+[alias]
+	br = branch
+	bra = branch --all
+	st = status
+	co = checkout
+	cb = checkout -b
+	ci = commit
+	mff = merge --ff-only
+	plz = push --force-with-lease
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+	excludesfile = /home/leo/.gitignore_global
+	editor = vi
+  pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+[interactive]
+  diffFilter = diff-so-fancy --patch
