@@ -1,0 +1,9 @@
+AceJump
+idea.plugin.protoeditor
+IdeaVIM
+org.jetbrains.IdeaVim-EasyMotion
+izhangzhihao.rainbow.brackets
+kotlintest-plugin-intellij
+com.github.developerutils.kotlin-function-arguments-helper
+kotest-plugin-intellij
+com.chrisrm.idea.MaterialThemeUI
