@@ -1,6 +1,5 @@
 set undofile
 set nofixendofline
-"set spell
 set laststatus=2
 set undodir=~/.vim/undodir
 set number
@@ -15,6 +14,8 @@ set nobackup
 "autocmd InsertLeave * :setlocal relativenumber
 set showmode
 let mapleader = ","
+
+autocmd FileType markdown setlocal spell
 
 call plug#begin('~/.vim/plugged')
 "Plug 'vim-scripts/groovy.vim'
@@ -64,19 +65,20 @@ let g:ale_fixers = {}
 let g:ale_writegood_options = "--no-passive"
 let g:ale_fixers.markdown = ['remark-lint']
 " This one: https://github.com/python-lsp/python-lsp-server
-let g:ale_linters.python = ['pylsp']
+"let g:ale_linters.python = ['pylsp']
+let g:ale_linters.python = ['pylint', 'pyright', 'pylsp']
 let g:ale_fixers.python = ['black', 'isort']
 let g:ale_python_black_options = '--line-length=120'
 "Not working, so manually `pip uninstall pycodestyle`
-let g:ale_python_pylsp_config = {
-              \   'pylsp': {
-              \     'plugins': {
-              \       'pycodestyle': {
-              \         'enabled': v:false
-              \       }
-              \     }
-              \   },
-              \ }
+"let g:ale_python_pylsp_config = {
+              "\   'pylsp': {
+              "\     'plugins': {
+              "\       'pycodestyle': {
+              "\         'enabled': v:false
+              "\       }
+              "\     }
+              "\   },
+              "\ }
 
 let g:ale_go_gopls_executable = '/home/leo/.asdf/installs/golang/1.13.5/packages/bin/gopls'
 let g:ale_linters.go = [ 'gopls' ]

@@ -62,3 +62,35 @@ fi
 alias watch='watch '
 alias iex='iex --erl "-kernel shell_history enabled"'
 export PATH=$PATH:${HOME}/bin/gradle/gradle-7.4.2/bin
+
+
+spawn_window()
+{
+    name=$1
+    cmd=$2
+    # TODO(pht) I could not find a way to avoid spliting the first window. My
+    # shell-fu is not good enough.
+    # This should return the number of open windows:
+    #   tmux list-windows -t "$session" -F "#{window_panes}"
+    # But I could not find a way to to test the command output and do an `if xx != "1"`
+    tmux split-window -t "$window"
+    tmux rename-window "$name"
+    tmux send-keys -t "$name" "$cmd" C-m
+}
+
+line_dispatcher()
+{
+    spawn_window "line-dispatcher" "cd kotlin-project/line-dispatcher && ./gradlew run"
+}
+
+sitecc_backend()
+{
+    spawn_window "sitecc-backend" "./bin/launch_sitecc"
+}
+
+todo() {
+    sitecc_backend
+    line_dispatcher
+}
+
+alias todo=s
