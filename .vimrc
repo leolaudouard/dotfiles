@@ -26,10 +26,8 @@ Plug 'iamcco/markdown-preview.nvim'
 " Theme
 " =======================================================================
 
-"Plug 'haishanh/night-owl.vim'
 "syntax enable
-colorscheme night-owl
-"colorscheme pablo
+Plug 'haishanh/night-owl.vim'
 
 
 " =======================================================================
@@ -155,3 +153,5 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+colorscheme night-owl
+"colorscheme pablo

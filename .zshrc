@@ -42,7 +42,6 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.asdf/installs/golang/1.13.5/packages/bin$PATH
 export PATH=$HOME/easymile/fleet-management/bin/.tools:$PATH
 export PATH="${PATH}:${HOME}/.krew/bin"
-eval $(thefuck --alias)
 source <(kubectl completion zsh)
 source <(helm completion zsh)
 alias k=kubectl
@@ -52,10 +51,8 @@ source ~/easymile/shell-utils/zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EM_LOCAL_PROJECTS_DIR=~/easymile/
-source ${HOME}/git-subrepo/.rc
-source ${HOME}/projects/kube-ps1/kube-ps1.sh
-PROMPT='$(kube_ps1)'$PROMPT
-kubeoff
+source ${HOME}/projects/git-subrepo/.rc
+
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
@@ -94,3 +91,5 @@ todo() {
 }
 
 alias todo=s
+alias g=./gradlew
+alias python=python3
