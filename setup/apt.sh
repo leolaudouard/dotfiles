@@ -4,6 +4,7 @@ sudo apt update && apt upgrade && apt install -y git \
     zsh \
     tldr \
     vim \
+    vim-gtk \
     #z \
     #diff-so-fancy \
     curl \
@@ -12,3 +13,5 @@ sudo apt update && apt upgrade && apt install -y git \
     asdf \
     fzf \
     silversearcher-ag \
+    python3-pylsp \
+    isort \

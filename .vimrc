@@ -14,6 +14,9 @@ set nobackup
 "autocmd InsertLeave * :setlocal relativenumber
 set showmode
 let mapleader = ","
+set ignorecase
+inoremap jk <ESC>
+
 
 autocmd FileType markdown setlocal spell
 
@@ -82,7 +85,7 @@ let g:ale_go_gopls_executable = '/home/leo/.asdf/installs/golang/1.13.5/packages
 let g:ale_linters.go = [ 'gopls' ]
 let g:ale_fixers.go = ['gofmt']
 " Elixir
-let g:ale_elixir_elixir_ls_release = "/home/leo/elixir-ls/rel"
+let g:ale_elixir_elixir_ls_release = "/home/leo/tools/elixir-ls/rel"
 let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
 let g:ale_linters.elixir = ['elixir-ls', 'credo']
 let g:ale_fixers.elixir = ['mix_format']

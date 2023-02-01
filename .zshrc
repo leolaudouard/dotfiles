@@ -15,7 +15,6 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 
-
 eval "$(starship init zsh)"
 
 source ${HOME}/zsh-plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
@@ -32,11 +31,9 @@ source ${HOME}/zsh-plugins/zsh-history-substring-search/zsh-history-substring-se
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-. $HOME/.asdf/asdf.sh
+source $HOME/.asdf/asdf.sh
 
-#. $HOME/.asdf/completions/asdf.bash
-
-source ${HOME}/
+export PATH=${HOME}/tools/git-fuzzy/bin:$PATH
 export PATH=${HOME}/projects/diff-so-fancy:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.asdf/installs/golang/1.13.5/packages/bin$PATH
@@ -90,6 +87,13 @@ todo() {
     line_dispatcher
 }
 
-alias todo=s
 alias g=./gradlew
 alias python=python3
+
+alias gp="git pull --prune"
+alias gb="git checkout -"
+
+# Main branch related, 'develop' here
+alias grd="git rebase develop"
+alias grdi="git rebase -i develop"
+alias gcd="git checkout develop"

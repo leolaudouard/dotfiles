@@ -1,9 +1,15 @@
+# Create vim stuff
+mkdir ~/.vim/undodir
+touch ~/.viminfo
+
+
 chsh -s "$(which zsh)"
 
 DOTFILES_PATH=$HOME/dotfiles
 
 
 ln -S "$HOME/.vimrc" "$DOTFILES_PATH/.vimrc" 
+ln -S "$HOME/.ideavimrc" "$DOTFILES_PATH/idea/.ideavimrc" 
 ln -S "$HOME/.zshrc" "$DOTFILES_PATH/.zshrc"
 ln -S "$HOME/.tmux.conf" "$DOTFILES_PATH/.tmux.conf"
 ln -S "$HOME/.gitconfig" "$DOTFILES_PATH/.gitconfig"
@@ -28,7 +34,18 @@ git clone https://github.com/jeffreytse/zsh-vi-mode.git "$HOME/zsh-plugins/zsh-v
 git clone https://github.com/zsh-users/zsh-history-substring-search.git "$HOME/zsh-plugins/zsh-history-substring-search"
 git clone https://github.com/zsh-users/zsh-completions.git "$HOME/zsh-plugins/zsh-completions"
 
+TOOLS_DIR="$HOME/tools"
+mkdir "$TOOLS_DIR"
 
+git clone https://github.com/bigH/git-fuzzy.git "$TOOLS_DIR/git-fuzzy"
+git clone https://github.com/elixir-lsp/elixir-ls.git "$TOOLS_DIR/elixir-ls"
+
+cd "$TOOLS_DIR/elixir-ls"
+mix deps.get
+MIX_ENV=prod mix compile
+MIX_ENV=prod mix elixir_ls.release -o ./rel/
+
+# TODO: Move this to tools dir
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
 git clone https://github.com/so-fancy/diff-so-fancy.git "$HOME/projects//diff-so-fancy"
 git clone https://github.com/jonmosco/kube-tmux.git "$HOME/projects/kube-tmux"
@@ -48,3 +65,9 @@ gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 
 
 git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+
+
+# Python packages 
+pip install pylint \
+    pyright \
+    isort \
