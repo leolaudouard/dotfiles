@@ -97,3 +97,17 @@ alias gb="git checkout -"
 alias grd="git rebase develop"
 alias grdi="git rebase -i develop"
 alias gcd="git checkout develop"
+alias docker-compose="docker compose"
+
+
+glmr() {
+  GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  HEAD_REPO=$(git remote get-url origin 2>/dev/null | sed 's/.*://;s/.git$//' || echo "")
+  UPSTREAM_REPO=$(git remote get-url upstream 2>/dev/null | sed 's/.*://;s/.git$//' || echo "")
+  if [ ! -z "$UPSTREAM_REPO" ]
+  then
+    glab mr create --repo=$UPSTREAM_REPO --head=$HEAD_REPO -b $GIT_BRANCH -s $GIT_BRANCH -f -y -a leo.laudouard
+  else
+    glab mr create --head=$HEAD_REPO -s $GIT_BRANCH -f -y -a leo.laudouard
+  fi
+}

@@ -38,4 +38,4 @@
 	new = green bold
 	whitespace = red reverse
 [help]
-	autocorrect = 20
+	autocorrect = 2
