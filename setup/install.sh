@@ -47,9 +47,10 @@ MIX_ENV=prod mix elixir_ls.release -o ./rel/
 
 # TODO: Move this to tools dir
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-git clone https://github.com/so-fancy/diff-so-fancy.git "$HOME/projects//diff-so-fancy"
-git clone https://github.com/jonmosco/kube-tmux.git "$HOME/projects/kube-tmux"
-git clone https://github.com/ingydotnet/git-subrepo.git "$HOME/projects/git-subrepo"
+
+git clone https://github.com/so-fancy/diff-so-fancy.git "$TOOLS_DIR/diff-so-fancy"
+git clone https://github.com/jonmosco/kube-tmux.git "$TOOLS_DIR/kube-tmux"
+git clone https://github.com/ingydotnet/git-subrepo.git "$TOOLS_DIR/git-subrepo"
 
 
 

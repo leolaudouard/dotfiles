@@ -33,8 +33,9 @@ bindkey '^[[B' history-substring-search-down
 
 source $HOME/.asdf/asdf.sh
 
-export PATH=${HOME}/tools/git-fuzzy/bin:$PATH
-export PATH=${HOME}/projects/diff-so-fancy:$PATH
+TOOLS_DIR=${HOME}/tools/
+export PATH=${TOOLS_DIR}/git-fuzzy/bin:$PATH
+export PATH=${TOOLS_DIR}/diff-so-fancy:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.asdf/installs/golang/1.13.5/packages/bin$PATH
 export PATH=$HOME/easymile/fleet-management/bin/.tools:$PATH
@@ -48,7 +49,7 @@ source ~/easymile/shell-utils/zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EM_LOCAL_PROJECTS_DIR=~/easymile/
-source ${HOME}/projects/git-subrepo/.rc
+source ${TOOLS_DIR}/git-subrepo/.rc
 
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default

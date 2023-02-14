@@ -5,8 +5,6 @@ sudo apt update && apt upgrade && apt install -y git \
     tldr \
     vim \
     vim-gtk \
-    #z \
-    #diff-so-fancy \
     curl \
     cargo \
     copyq \
