@@ -1,6 +1,7 @@
 #!/bin/bash
 
 snap install starship \
-    intellij \
     spotify \
     1password \
+
+sudo snap install intellij-idea-community --classic

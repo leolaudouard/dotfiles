@@ -1,5 +1,5 @@
 # Create vim stuff
-mkdir ~/.vim/undodir
+mkdir -p ~/.vim/undodir
 touch ~/.viminfo
 
 
@@ -8,13 +8,14 @@ chsh -s "$(which zsh)"
 DOTFILES_PATH=$HOME/dotfiles
 
 
-ln -S "$HOME/.vimrc" "$DOTFILES_PATH/.vimrc" 
-ln -S "$HOME/.ideavimrc" "$DOTFILES_PATH/idea/.ideavimrc" 
-ln -S "$HOME/.zshrc" "$DOTFILES_PATH/.zshrc"
-ln -S "$HOME/.tmux.conf" "$DOTFILES_PATH/.tmux.conf"
-ln -S "$HOME/.gitconfig" "$DOTFILES_PATH/.gitconfig"
-mkdir "$HOME/.config"
-ln -S "$HOME/.config/starship.toml" "$DOTFILES_PATH/starship.toml"
+mkdir -p "$HOME/.config"
+
+ln -s "$DOTFILES_PATH/.vimrc" "$HOME/.vimrc" 
+ln -s "$DOTFILES_PATH/idea/.ideavimrc" "$HOME/.ideavimrc" 
+ln -s "$DOTFILES_PATH/.zshrc" "$HOME/.zshrc"
+ln -s "$DOTFILES_PATH/.tmux.conf" "$HOME/.tmux.conf"
+ln -s "$DOTFILES_PATH/.gitconfig" "$HOME/.gitconfig"
+ln -s "$DOTFILES_PATH/starship.toml" "$HOME/.config/starship.toml"
 
 
 "$DOTFILES_PATH/setup/apt.sh"

@@ -17,19 +17,15 @@ zstyle ':completion:*' menu select
 
 eval "$(starship init zsh)"
 
-source ${HOME}/zsh-plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ${HOME}/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source ${HOME}/zsh-plugins/zsh-completions/zsh-completions.plugin.zsh
-source ${HOME}/zsh-plugins/zsh-z/zsh-z.plugin.zsh
-#source ${HOME}/zsh-plugins/fzf-z/fzf-z.plugin.zsh
-source ${HOME}/zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
-source ${HOME}/zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source ${HOME}/zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source ${HOME}/zsh-plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-# Does not work
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+ZSH_PLUGINS_PATH=${HOME}/zsh-plugins
+source ${ZSH_PLUGINS_PATH}/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ${ZSH_PLUGINS_PATH}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source ${ZSH_PLUGINS_PATH}/zsh-completions/zsh-completions.plugin.zsh
+source ${ZSH_PLUGINS_PATH}/zsh-z/zsh-z.plugin.zsh
+source ${ZSH_PLUGINS_PATH}/fzf-tab/fzf-tab.plugin.zsh
+source ${ZSH_PLUGINS_PATH}/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source ${ZSH_PLUGINS_PATH}/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ${ZSH_PLUGINS_PATH}/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 
 source $HOME/.asdf/asdf.sh
 
@@ -112,3 +108,11 @@ glmr() {
     glab mr create --head=$HEAD_REPO -s $GIT_BRANCH -f -y -a leo.laudouard
   fi
 }
+
+function after_zvm_init() {
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+  bindkey '^r' fzf_history_search
+}
+
+zvm_after_init_commands+=(after_zvm_init)

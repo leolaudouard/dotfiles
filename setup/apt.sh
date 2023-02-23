@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt update && apt upgrade && apt install -y git \
+sudo apt update && sudo apt upgrade && sudo apt install -y git \
     tmux \
     zsh \
     tldr \
@@ -8,7 +8,6 @@ sudo apt update && apt upgrade && apt install -y git \
     curl \
     cargo \
     copyq \
-    asdf \
     fzf \
     silversearcher-ag \
     python3-pylsp \
