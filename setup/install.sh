@@ -68,6 +68,8 @@ gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 
 git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 
+# Update tldr entries
+tldr -u
 
 # Python packages 
 pip install pylint \

@@ -12,3 +12,4 @@ sudo apt update && sudo apt upgrade && sudo apt install -y git \
     silversearcher-ag \
     python3-pylsp \
     isort \
+    python3-pip \
