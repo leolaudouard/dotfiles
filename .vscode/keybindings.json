@@ -1,0 +1,7 @@
+[
+    {
+        "key": "f",
+        "command": "findThenJump.initiate",
+        "when": "editorTextFocus"
+    }
+]

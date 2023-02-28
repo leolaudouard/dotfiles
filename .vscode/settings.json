@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "Default Dark+ Experimental",
+    "workbench.colorCustomizations":  {
+        "findThenJump.textDecorationForeground": "#f6ff79",
+        "findThenJump.textDecorationBackground": "#000000"
+     },
+}

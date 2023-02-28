@@ -9,6 +9,9 @@ DOTFILES_PATH=$HOME/dotfiles
 
 
 mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.vscode"
+
+mkdir -p "$HOME/.config/Code/User"
 
 ln -s "$DOTFILES_PATH/.vimrc" "$HOME/.vimrc" 
 ln -s "$DOTFILES_PATH/idea/.ideavimrc" "$HOME/.ideavimrc" 
@@ -16,10 +19,13 @@ ln -s "$DOTFILES_PATH/.zshrc" "$HOME/.zshrc"
 ln -s "$DOTFILES_PATH/.tmux.conf" "$HOME/.tmux.conf"
 ln -s "$DOTFILES_PATH/.gitconfig" "$HOME/.gitconfig"
 ln -s "$DOTFILES_PATH/starship.toml" "$HOME/.config/starship.toml"
+ln -s "$DOTFILES_PATH/.vscode/settings.json" "$HOME/.config/Code/User/settings.json"
+ln -s "$DOTFILES_PATH/.vscode/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
 
 
 "$DOTFILES_PATH/setup/apt.sh"
 "$DOTFILES_PATH/setup/snap.sh"
+"$DOTFILES_PATH/setup/vscode.sh"
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
